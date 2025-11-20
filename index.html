@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>vCard Video Top - Elegan Sudut Final</title>
+<style>
+ body {
+  margin: 0;
+  background: #f0f4f8;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+ }
+
+ .card {
+  max-width: 420px;
+  margin: 30px auto;
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 12px 28px rgba(0,0,0,0.15);
+  overflow: hidden;
+ }
+
+ .video-section video {
+  width: 100%;
+  height: 230px;
+  object-fit: cover;
+  display: block;
+ }
+
+ .content {
+  padding: 20px 30px 30px;
+    /* PENTING: Menampung hiasan sudut */
+    position: relative;
+    overflow: hidden; 
+ }
+    
+ /* --- CSS UNTUK HIASAN SUDUT KANAN ATAS (Garis Elegan) --- */
+ .card::after { /* Sekarang targetnya .card::after */
+  content: '';
+  position: absolute;
+    /* Posisikan sedikit ke dalam dari tepi kanan dan atas kartu */
+  top: 10px; /* Jarak dari tepi atas */
+  right: 10px; /* Jarak dari tepi kanan */
+  width: 40px; 
+  height: 40px;
+  
+  /* Gradien yang sama */
+  border-top: 4px solid transparent; 
+  border-right: 4px solid transparent;
+  border-image: linear-gradient(to bottom right, #2563eb, #8b5cf6, transparent 80%);
+  border-image-slice: 1; 
+
+  /* PENTING: Gunakan radius yang sama dengan radius kartu atau sedikit lebih kecil */
+  border-top-right-radius: 15px; /* Sedikit lebih kecil dari 20px kartu */
+  pointer-events: none; 
+  z-index: 2; /* Pastikan di atas video/konten jika tumpang tindih */
+ }
+ /* Logo diperbesar & rata kiri */
+ .logo {
+  width: 170px;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  /* Margin 0 0 12px 0 memastikan rata kiri */
+  margin: 0 0 12px 0; 
+ }
+
+ /* Nama & role di bawah logo, rata kiri */
+ .name-role {
+  text-align: left;
+  margin-bottom: 20px;
+ }
+
+ .name {
+  font-size: 22px;
+  font-weight: 700;
+  margin: 0;
+  color: #1f2937;
+ }
+
+ .role {
+  font-size: 16px;
+  color: #64748b;
+  margin-top: 2px;
+ }
+
+ /* Tombol Save Contact DI TENGAH */
+ .save-btn {
+  display: block;
+  width: 50%;
+  background: #2563eb;
+  color: white;
+  padding: 12px;
+  border-radius: 12px;
+  font-weight: 700;
+  text-decoration: none;
+  /* Margin auto untuk menengahkan */
+  margin: 20px auto 0 auto;
+  box-shadow: 0 6px 20px rgba(37, 99, 235, 0.5);
+  transition: background-color 0.3s ease;
+  text-align: center;
+ }
+
+ .save-btn:hover {
+  background: #1e40af;
+ }
+
+ /* Info Kontak - Kerapatan Maksimal */
+ .info {
+  margin-top: 20px;
+  line-height: 1.2; /* Line height rendah */
+  font-size: 15px;
+  text-align: left;
+ }
+
+ /* PENTING: Menghilangkan margin bawaan tag <p> dan memastikan konsistensi */
+ .info p {
+  margin: 0;
+  padding: 0;
+  display: block;
+ }
+
+ .info b {
+  display: inline-block;
+  width: 26px;
+  color: #2563eb;
+ }
+</style>
+</head>
+<body>
+
+<div class="card">
+
+  <div class="video-section">
+  <video autoplay muted loop playsinline controls>
+   <source src="intro.mp4" type="video/mp4" />
+   Browser Anda tidak mendukung video.
+  </video>
+ </div>
+
+  <div class="content">
+
+    <img src="logo.png" alt="Logo Fata" class="logo">
+
+    <div class="name-role">
+   <div class="name">Rinda Pertiwi W</div>
+   <div class="role">Sales</div>
+  </div>
+
+    <a href="*" class="save-btn">SAVE CONTACT</a>
+
+    <div class="info">
+   <p><b>📧</b> Rinda@fatasaranamur.com</p>
+   <p><b>📌</b> jl. initi 1 Blok C1 No.20 Lippo Cikarang</p>
+   <p><b>🌐</b> www.fatasaranamur.com</p>
+   <p><b>📄</b> <a href="https://heyzine.com/flip-book/0d7a8e08ac.html" style="color: #1f2937; text-decoration: none;">Lihat Katalog Produk</a></p>
+  </div>
+
+ </div>
+</div>
+
+</body>
+</html>
