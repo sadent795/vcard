@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tampilan Flip-Book dengan Tombol Kembali Elegan</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Font yang lebih modern */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+        .header-controls {
+            padding: 15px 30px; /* Padding lebih besar */
+            background-color: #ffffff; /* Latar belakang putih */
+            border-bottom: 1px solid #e0e0e0;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); /* Bayangan halus */
+        }
+        
+        /* STYLING TOMBOL BARU */
+        .back-button {
+            background-color: #003366; /* Biru Tua / Navy Blue */
+            color: white;
+            padding: 12px 25px; /* Ukuran tombol lebih besar */
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 600; /* Lebih tebal */
+            border-radius: 8px; /* Sudut lebih membulat */
+            transition: background-color 0.3s ease, transform 0.1s ease; /* Transisi halus */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Bayangan tombol */
+            display: inline-flex; /* Agar ikon dan teks sejajar */
+            align-items: center;
+        }
+        
+        .back-button:hover {
+            background-color: #004080; /* Warna sedikit lebih terang saat dihover */
+            transform: translateY(-1px); /* Efek sedikit terangkat saat dihover */
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+        }
+        
+        .back-button:active {
+            background-color: #002244; /* Warna lebih gelap saat ditekan */
+            transform: translateY(1px); /* Efek tombol tertekan */
+        }
+
+        .back-button-icon {
+            margin-right: 8px;
+            font-size: 18px;
+            line-height: 1;
+        }
+        /* Akhir STYLING TOMBOL BARU */
+
+        .external-frame {
+            flex-grow: 1;
+            width: 100%;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header-controls">
+        <button class="back-button" onclick="history.back()">
+            <span class="index.html">←</span> Kembali ke Halaman Sebelumnya
+        </button>
+    </div>
+    
+    <iframe 
+        class="external-frame" 
+        src="https://heyzine.com/flip-book/0d7a8e08ac.html" 
+        title="Flip-Book Katalog Produk" 
+        frameborder="0"
+        allowfullscreen
+    ></iframe>
+
+</body>
+</html>
