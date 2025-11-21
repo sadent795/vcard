@@ -18,9 +18,10 @@
         border-radius: 20px;
         box-shadow: 0 12px 28px rgba(0,0,0,0.15);
         overflow: hidden;
-        position: relative; /* Penting untuk pseudoelement ::after */
+        position: relative;
     }
 
+    /* --- VIDEO SECTION --- */
     .video-section video {
         width: 100%;
         height: 230px;
@@ -29,12 +30,12 @@
     }
 
     .content {
-        padding: 20px 30px 40px; /* Diperbesar sedikit di bagian bawah */
+        padding: 20px 30px 40px;
         position: relative;
         overflow: hidden; 
     }
         
-    /* --- CSS UNTUK HIASAN SUDUT KANAN ATAS (Garis Elegan) --- */
+    /* --- CSS UNTUK HIASAN SUDUT KANAN ATAS --- */
     .card::after {
         content: '';
         position: absolute;
@@ -43,7 +44,7 @@
         width: 40px; 
         height: 40px;
         
-        /* Gradien yang sama */
+        /* Gradien */
         border-top: 4px solid transparent; 
         border-right: 4px solid transparent;
         border-image: linear-gradient(to bottom right, #2563eb, #8b5cf6, transparent 80%);
@@ -54,7 +55,6 @@
         z-index: 2; 
     }
     
-    /* Logo diperbesar & rata kiri */
     .logo {
         width: 170px;
         height: auto;
@@ -63,27 +63,26 @@
         margin: 0 0 12px 0; 
     }
 
-    /* Nama & role di bawah logo, rata kiri */
     .name-role {
         text-align: left;
         margin-bottom: 25px;
     }
 
     .name {
-        font-size: 24px; /* Sedikit lebih besar */
+        font-size: 24px;
         font-weight: 700;
         margin: 0;
         color: #1f2937;
     }
 
     .role {
-        font-size: 14px; /* Dikecilkan sedikit */
+        font-size: 14px;
         color: #64748b;
-        margin-top: 5px; /* Ditingkatkan dari 2px */
+        margin-top: 5px;
         line-height: 1.3;
     }
 
-    /* --- Tombol Aksi Cepat (WhatsApp & Call) --- */
+    /* --- Tombol Aksi Cepat (WhatsApp & Call/Catalog) --- */
     .action-buttons {
         display: flex;
         justify-content: space-between;
@@ -91,6 +90,7 @@
         margin-bottom: 15px; 
     }
 
+    /* Styling Dasar untuk Kedua Tombol */
     .action-btn {
         flex: 1;
         background: #e0f2fe;
@@ -100,27 +100,47 @@
         font-weight: 600;
         text-decoration: none;
         text-align: center;
-        transition: background-color 0.3s ease;
+        transition: background-color 0.3s ease, box-shadow 0.2s ease, transform 0.1s ease;
         font-size: 14px;
         display: flex;
         align-items: center;
         justify-content: center;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); 
     }
 
     .action-btn:hover {
         background: #bae6fd;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Styling Khusus untuk Tombol Katalog (Biru Tua) */
+    .catalog-btn {
+        background: #003366; /* Biru Tua / Navy Blue */
+        color: white;
+    }
+
+    .catalog-btn:hover {
+        background: #004080; /* Sedikit lebih terang saat hover */
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        transform: translateY(-2px); /* Efek terangkat saat dihover */
+    }
+
+    .catalog-btn:active {
+        background: #002244; /* Lebih gelap saat ditekan - Tanda saat diklik */
+        transform: translateY(0); /* Efek ditekan */
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     }
 
     .action-btn .icon {
         margin-right: 5px; 
-        font-size: 18px; /* Ukuran Ikon */
+        font-size: 18px;
         line-height: 1;
     }
 
     /* Tombol Save Contact DI TENGAH */
     .save-btn {
         display: block;
-        width: 60%; /* Ditingkatkan sedikit */
+        width: 60%;
         background: #2563eb;
         color: white;
         padding: 12px;
@@ -137,21 +157,45 @@
         background: #1e40af;
     }
 
-    /* Info Kontak - Kerapatan Maksimal */
+    /* Info Kontak - Sejajar dan Rapi */
     .info {
-        margin-top: 30px; /* Jarak dari tombol SAVE CONTACT */
+        margin-top: 30px;
         line-height: 1.2; 
         font-size: 15px;
         text-align: left;
-        border-top: 1px solid #e5e7eb; /* Garis pemisah dari tombol */
+        border-top: 1px solid #e5e7eb;
         padding-top: 20px;
     }
 
     .info p {
         margin: 6px 0; 
         padding: 0;
-        display: flex; /* Untuk sejajarkan ikon dan teks */
-        align-items: center;
+        display: flex; 
+        align-items: flex-start;
+    }
+    
+    .info a {
+        /* Memastikan link di info section tidak ada garis bawah dan warnanya ikut induk */
+        text-decoration: none; 
+        color: inherit;
+        display: flex; /* Tambahkan flex untuk memastikan ikon dan teks di dalam <a> sejajar */
+        align-items: flex-start;
+        cursor: pointer; /* Kursor berubah menjadi tangan */
+        transition: color 0.2s ease; /* Transisi untuk perubahan warna */
+        width: 100%; /* Pastikan seluruh area baris bisa di-hover */
+        padding: 4px 0; /* Tambahkan sedikit padding agar area hover lebih nyaman */
+        margin: -4px 0; /* Sesuaikan margin P */
+    }
+
+    /* TANDA BAHWA LINK BISA DI KLIK (Hover) */
+    .info a:hover {
+        color: #2563eb; /* Warna teks menjadi biru saat di-hover */
+        text-decoration: underline; /* GARIS BAWAH muncul saat di-hover */
+    }
+
+    /* TANDA SAAT AKAN DI KLIK (Active) */
+    .info a:active {
+        color: #1e40af; /* Warna berubah menjadi biru yang lebih gelap saat diklik */
     }
 
     .info b {
@@ -160,6 +204,8 @@
         color: #2563eb;
         text-align: center;
         margin-right: 6px; 
+        flex-shrink: 0; /* Penting: mencegah ikon menyusut */
+        padding-top: 2px;
     }
 </style>
 </head>
@@ -167,13 +213,15 @@
 
 <div class="card">
 
-      <div class="video-section">
-    <video autoplay muted loop playsinline>
-        <source src="assets/intro2.mp4" type="video/mp4" />
-        Browser Anda tidak mendukung video.
-    </video>
+    <div class="video-section">
+        <video autoplay muted loop playsinline>
+            <source src="assets/intro2.mp4" type="video/mp4" />
+            Browser Anda tidak mendukung video.
+        </video>
+    </div>
 
     <div class="content">
+
         <img src="assets/logo.png" alt="Logo Fata" class="logo">
 
         <div class="name-role">
@@ -185,15 +233,29 @@
             <a href="https://wa.me/6282277772950?text=Halo%20Rinda,%20saya%20tertarik%20dengan%20produk%20Fata%20Sarana%20Makmur." class="action-btn wa-btn">
                 <span class="icon">💬</span> WhatsApp
             </a>
-            <a href="catalog.html" class="action-btn call-btn">
+            <a href="catalog.html" class="action-btn catalog-btn">
                 <span class="icon">🧾</span> Catalog
             </a>
         </div>
-
+        
         <div class="info">
-            <p><b>📩</b> rinda@fatasaranamakmur.com</p>
-            <p><b>📍</b> Jl. Inti I No.20, Cibatu, Lippo Cikarang Selatan, Bekasi Regency, West Java 17550</p>
-            <p><b>🌍</b> www.fatasaranamakmur.com</p>
+            <p>
+                <a href="mailto:Rinda@fatasaranamur.com">
+                    <b>📩</b> Rinda@fatasaranamur.com
+                </a>
+            </p>
+
+            <p>
+                <a href="https://maps.app.goo.gl/g6tG9s91p9e6e4Qk9" target="_blank">
+                    <b>📍</b> Jl. Inti I No.20, Cibatu, Cikarang Selatan, Bekasi Regency, West Java 17550
+                </a>
+            </p>
+
+            <p>
+                <a href="https://www.fatasaranamakmur.com" target="_blank">
+                    <b>🌍</b> www.fatasaranamakmur.com
+                </a>
+            </p>
         </div>
 
     </div>
